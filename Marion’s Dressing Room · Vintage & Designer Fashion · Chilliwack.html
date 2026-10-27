@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Marion’s Dressing Room · Vintage &amp; Designer Fashion · Chilliwack</title>
+<meta name="description" content="Marion’s Dressing Room, a vintage and designer fashion boutique in downtown Chilliwack, BC. One-of-a-kind dresses, jewellery, purses, shoes, hats and more.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,800;1,500&family=Josefin+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f8efe3;--bg2:#f1e2cf;--ink:#2a1a1f;--muted:#6b5459;--velvet:#6a1230;--velvet2:#4a0b21;--gold:#c9a24b;--card:#fffaf2;--line:#e2cfb4;--bulb:#ffe9a8;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1b0f14;--bg2:#24141b;--ink:#f6ead8;--muted:#c7aeb0;--card:#2b1920;--line:#46303a;--velvet:#8a1c44}}
+:root[data-theme="dark"]{--bg:#1b0f14;--bg2:#24141b;--ink:#f6ead8;--muted:#c7aeb0;--card:#2b1920;--line:#46303a;--velvet:#8a1c44}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth;scroll-padding-top:calc(env(safe-area-inset-top,0px) + 70px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:300 17px/1.6 "Josefin Sans",system-ui,sans-serif;overflow-x:hidden}
+h1,h2,h3{font-family:"Playfair Display",Georgia,serif;line-height:1.15;margin:0}
+a{color:inherit}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+section{padding:72px 0}
+.eyebrow{font-weight:600;letter-spacing:.28em;text-transform:uppercase;font-size:.75rem;color:var(--gold)}
+h2{font-size:clamp(1.9rem,5vw,2.8rem);margin:8px 0 14px}
+.lead{color:var(--muted);max-width:58ch}
+.btn{display:inline-block;padding:13px 26px;border-radius:99px;background:var(--gold);color:#2a1a1f;font-weight:600;text-decoration:none;letter-spacing:.06em;border:0;cursor:pointer;font:600 .95rem "Josefin Sans",sans-serif;transition:transform .2s,box-shadow .2s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 8px 20px #0003}
+.btn.ghost{background:transparent;border:1.5px solid currentColor;color:inherit}
+/* curtain intro */
+#curtain{position:fixed;inset:0;z-index:100;display:none}
+.js #curtain{display:block}
+.pane{position:absolute;top:0;bottom:0;width:50.5%;background:repeating-linear-gradient(90deg,var(--velvet2) 0 22px,var(--velvet) 22px 44px,#7d1a3b 44px 56px);transition:transform 1.3s cubic-bezier(.7,0,.2,1);box-shadow:inset 0 -60px 80px #0006}
+.pane.l{left:0}.pane.r{right:0}
+#curtain.open .l{transform:translateX(-101%)}#curtain.open .r{transform:translateX(101%)}
+#curtain.open{pointer-events:none;transition:opacity .3s 1.2s;opacity:0}
+.rail{position:absolute;top:0;left:0;right:0;height:12px;background:linear-gradient(#e8c872,#8a6a1e)}
+.gate{position:absolute;inset:0;display:grid;place-content:center;text-align:center;color:#f6ead8;z-index:2;padding:20px;transition:opacity .4s}
+#curtain.open .gate{opacity:0}
+.gate h1{font-size:clamp(2rem,8vw,3.6rem);color:#f6ead8;margin-bottom:10px}
+.gate p{margin:0 0 22px;letter-spacing:.2em;text-transform:uppercase;font-size:.8rem}
+/* nav */
+nav{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);padding-top:env(safe-area-inset-top,0px)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+.logo{font-family:"Playfair Display",serif;font-weight:800;text-decoration:none;font-size:1.15rem}
+.logo i{color:var(--gold)}
+.links{display:flex;gap:22px;align-items:center}
+.links a{text-decoration:none;font-weight:600;font-size:.85rem;letter-spacing:.08em;text-transform:uppercase}
+.links a:hover{color:var(--gold)}
+#theme,#burger{background:none;border:1px solid var(--line);color:var(--ink);border-radius:50%;width:38px;height:38px;cursor:pointer;font-size:1rem}
+#burger{display:none}
+@media(max-width:720px){#burger{display:block}.links{position:absolute;top:100%;left:0;right:0;background:var(--bg);flex-direction:column;padding:18px;border-bottom:1px solid var(--line);display:none}.links.show{display:flex}}
+/* hero */
+.hero{background:radial-gradient(ellipse at 50% 0,var(--velvet) 0,var(--velvet2) 70%);color:#f6ead8;padding:56px 0 80px;text-align:center}
+.mirror{position:relative;max-width:720px;margin:0 auto;padding:54px 28px;border-radius:200px 200px 24px 24px;background:linear-gradient(160deg,#ffffff14,#ffffff05);border:3px solid var(--gold);box-shadow:0 0 60px #ffe9a844 inset,0 20px 50px #0007}
+.bulbs{position:absolute;inset:-16px;border-radius:216px 216px 40px 40px;pointer-events:none;background:radial-gradient(circle,var(--bulb) 3px,#ffe9a855 6px,transparent 7px) 0 0/30px 30px;-webkit-mask:linear-gradient(#000 0 0) border-box,linear-gradient(#000 0 0) padding-box;-webkit-mask-composite:xor;mask-composite:exclude;padding:16px;animation:tw 2.4s infinite alternate}
+@keyframes tw{from{opacity:.55}to{opacity:1}}
+.hero h1{font-size:clamp(2.4rem,9vw,4.6rem);font-style:italic}
+.hero h1 b{display:block;font-style:normal;font-weight:800;color:var(--gold);text-shadow:0 0 24px #ffe9a866}
+.hero p{max-width:46ch;margin:16px auto 26px;color:#ecd9c6}
+.cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.marquee{background:var(--gold);color:#2a1a1f;overflow:hidden;white-space:nowrap;font-weight:600;letter-spacing:.2em;text-transform:uppercase;font-size:.8rem;padding:10px 0}
+.marquee span{display:inline-block;padding-left:100%;animation:mq 28s linear infinite}
+@keyframes mq{to{transform:translateX(-100%)}}
+/* try-on */
+.stage{display:grid;grid-template-columns:1fr 1.2fr;gap:30px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:22px;padding:28px;margin-top:26px;--a:#e8a0b4;--b:#c2185b;transition:background .4s}
+@media(max-width:720px){.stage{grid-template-columns:1fr}}
+.stage svg{width:100%;max-width:220px;margin:0 auto;display:block;filter:drop-shadow(0 12px 14px #0003);animation:sway 4s ease-in-out infinite;transform-origin:50% 0}
+@keyframes sway{50%{transform:rotate(3deg)}}
+.d1{fill:var(--a);transition:fill .5s,d .7s ease}.d2{fill:var(--b);transition:fill .5s,d .7s ease}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+.tabs button{border:1.5px solid var(--gold);background:none;color:var(--ink);padding:8px 18px;border-radius:99px;cursor:pointer;font:600 .9rem "Josefin Sans",sans-serif}
+.tabs button[aria-pressed=true]{background:var(--gold);color:#2a1a1f}
+.stage h3{font-size:1.6rem;margin-bottom:6px}
+/* departments */
+.rackbar{height:6px;background:linear-gradient(#e8c872,#8a6a1e);border-radius:4px;margin-top:34px}
+.hangers{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:14px;margin-top:0}
+.hg{background:var(--card);border:1px solid var(--line);border-radius:0 0 16px 16px;padding:22px 14px 18px;text-align:center;position:relative;transition:transform .3s;transform-origin:50% 0}
+.hg::before{content:"";position:absolute;top:-14px;left:50%;width:22px;height:14px;margin-left:-11px;border:3px solid var(--gold);border-bottom:0;border-radius:12px 12px 0 0}
+.hg:hover{animation:sway 1s ease-in-out}
+.hg span{font:italic 600 1.1rem "Playfair Display",serif;color:var(--gold);display:block;margin-bottom:4px}
+.hg b{font-family:"Playfair Display",serif;font-size:1.05rem}
+/* gallery */
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:26px}
+@media(max-width:720px){.grid{grid-template-columns:repeat(2,1fr)}}
+.ph{position:relative;aspect-ratio:3/4;border-radius:14px;overflow:hidden;background:repeating-linear-gradient(45deg,var(--bg2) 0 12px,var(--card) 12px 24px);border:2px dashed var(--gold);display:grid;place-content:center;text-align:center;color:var(--muted);font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;padding:10px}.ph div::after{content:"Photo to come";display:block;margin-top:6px;font-size:.58rem;opacity:.65}
+.ph.w{grid-column:span 2;aspect-ratio:auto}
+.ph img{z-index:1;position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.ph em{display:block;font-size:2rem;font-style:normal}
+/* visit */
+.visit{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:26px}
+@media(max-width:720px){.visit{grid-template-columns:1fr}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:26px}
+.card h3{font-size:1.3rem;margin-bottom:8px}
+.map{min-height:240px;display:grid;place-content:center;text-align:center;background:linear-gradient(135deg,var(--velvet2),var(--velvet));color:#f6ead8;border-radius:20px;padding:20px}
+.soc{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin-top:26px}
+.soc a{display:block;text-decoration:none;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px;transition:transform .2s,border-color .2s}
+.soc a:hover{transform:translateY(-4px);border-color:var(--gold)}
+.soc b{display:block;font-family:"Playfair Display",serif;font-size:1.15rem}
+.soc small{color:var(--muted)}
+footer{background:var(--velvet2);color:#e8d4c0;text-align:center;padding:40px 20px 100px;font-size:.9rem}
+footer .logo{font-size:1.4rem;color:var(--gold)}
+/* mobile bar */
+.bar{position:fixed;left:0;right:0;bottom:0;z-index:60;display:none;background:var(--velvet2);padding:8px 8px calc(8px + env(safe-area-inset-bottom,0px));gap:8px}
+.bar a{flex:1;text-align:center;text-decoration:none;color:#f6ead8;font-weight:600;font-size:.82rem;letter-spacing:.06em;padding:11px 4px;border-radius:12px;background:#ffffff14}
+@media(max-width:720px){.bar{display:flex}}
+.rv{opacity:0;transform:translateY(26px);transition:opacity .7s,transform .7s}.rv.in{opacity:1;transform:none}
+.tag{position:absolute;top:calc(100% - 6px);right:12%;width:80px;padding:24px 8px 12px;background:#f6ead8;color:#4a0b21;font:italic 700 .95rem/1.1 "Playfair Display",serif;text-align:center;border-radius:4px 4px 12px 12px;transform-origin:50% 0;animation:swing 3.6s ease-in-out infinite;box-shadow:0 10px 18px #0006}.tag::before{content:"";position:absolute;top:8px;left:50%;width:10px;height:10px;margin-left:-5px;border-radius:50%;background:var(--velvet2)}@keyframes swing{0%,100%{transform:rotate(7deg)}50%{transform:rotate(-7deg)}}.st{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:.85rem;letter-spacing:.06em}.st::before{content:"";width:9px;height:9px;border-radius:50%;background:#7ad08a;box-shadow:0 0 10px #7ad08a}.st.c::before{background:#e07a7a;box-shadow:0 0 10px #e07a7a}.hero .st{margin-top:18px;color:#f6ead8}.hours{width:100%;border-collapse:collapse;margin:6px 0 12px}.hours td{padding:6px 0;border-bottom:1px solid var(--line)}.hours td:last-child{text-align:right;font-weight:600}footer a{color:var(--gold)}@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+</style>
+<script>document.documentElement.className='js'</script>
+</head>
+<body>
+
+<div id="curtain" aria-label="Welcome">
+  <div class="pane l"></div><div class="pane r"></div><div class="rail"></div>
+  <div class="gate"><p>Chilliwack, BC · Vintage &amp; Designer</p><h1>Marion’s<br>Dressing Room</h1><div><button class="btn" id="open">Step inside</button></div></div>
+</div>
+
+<nav><div class="wrap">
+  <a class="logo" href="#top">Marion’s <i>Dressing Room</i></a>
+  <div class="links" id="links">
+    <a href="#tryon">Try-On</a><a href="#rack">The Rack</a><a href="#gallery">Gallery</a><a href="#visit">Visit</a><a href="#follow">Follow</a>
+  </div>
+  <div style="display:flex;gap:8px"><button id="theme" aria-label="Toggle light or dark">◐</button><button id="burger" aria-label="Menu">☰</button></div>
+</div></nav>
+
+<header class="hero" id="top"><div class="wrap">
+  <div class="mirror"><div class="bulbs"></div>
+    <div class="eyebrow">Downtown Chilliwack · Since 1994</div>
+    <h1>Find something<b>one-of-a-kind</b></h1>
+    <p>Vintage clothing and carefully chosen contemporary pieces, picked by Marion for people who would rather not wear what everyone else is wearing. Find us in a restored heritage building on Mill Street.</p>
+    <div class="cta"><a class="btn" href="tel:+16047927547">Call (604) 792-7547</a><a class="btn ghost" href="#visit">Hours &amp; directions</a></div><div class="st"></div><div class="tag">Est.<br>1994</div>
+  </div>
+</div></header>
+<div class="marquee"><span>Vintage · Contemporary · One-of-a-kind · Dresses · Jewellery · Purses · Shoes · Hats · Scarves · Raincoats · Downtown Chilliwack · Vintage · Contemporary · One-of-a-kind ·</span></div>
+
+<section id="tryon"><div class="wrap rv">
+  <div class="eyebrow">Fitting room</div><h2>Try on a decade</h2>
+  <p class="lead">Not sure where to start? Pick an era and see the kind of silhouettes and colours to hunt for on the rack. Then come in and find your own.</p>
+  <div class="stage" id="stage">
+    <svg viewBox="0 0 120 170" aria-hidden="true"><path d="M60 4a8 8 0 1 1 7 12l-7 6 50 22v6H10v-6l50-22" fill="none" stroke="#c9a24b" stroke-width="3"/><path class="d1" id="p1"/><path class="d2" id="p2"/><path d="M52 44Q60 54 68 44" fill="none" stroke="#fff9" stroke-width="1.5"/></svg>
+    <div><div class="tabs" id="tabs"></div><h3 id="et"></h3><p id="ed" class="lead"></p><p id="ep" style="color:var(--gold);font-weight:600"></p></div>
+  </div>
+</div></section>
+
+<section id="rack" style="background:var(--bg2)"><div class="wrap rv">
+  <div class="eyebrow">What’s on the rack</div><h2>Browse the departments</h2>
+  <p class="lead">Stock changes constantly because every piece is a find. Here’s what you’ll usually discover.</p>
+  <div class="rackbar"></div>
+  <div class="hangers">
+    <div class="hg"><span>01</span><b>Dresses</b></div><div class="hg"><span>02</span><b>Jewellery</b></div><div class="hg"><span>03</span><b>Purses</b></div>
+    <div class="hg"><span>04</span><b>Shoes</b></div><div class="hg"><span>05</span><b>Hats</b></div><div class="hg"><span>06</span><b>Scarves</b></div>
+    <div class="hg"><span>07</span><b>Raincoats</b></div><div class="hg"><span>08</span><b>Designer finds</b></div>
+  </div>
+</div></section>
+
+<section id="gallery"><div class="wrap rv">
+  <div class="eyebrow">Look inside</div><h2>The shop &amp; the finds</h2>
+  <p class="lead">A look inside the shop and a few favourite finds.</p>
+  <div class="grid">
+    <div class="ph w"><!-- <img src="storefront.jpg" alt="Marion’s Dressing Room storefront"> --><div>The shop</div></div>
+    <div class="ph"><div>Featured dress</div></div>
+    <div class="ph"><div>Purses &amp; accessories</div></div>
+    <div class="ph"><div>Customer looks</div></div>
+    <div class="ph"><div>Jewellery</div></div>
+    <div class="ph w"><div>Fitting area</div></div>
+  </div>
+</div></section>
+
+<section id="visit" style="background:var(--bg2)"><div class="wrap rv">
+  <div class="eyebrow">Come say hello</div><h2>Visit Marion’s</h2>
+  <div class="visit">
+    <div class="card"><h3>Find us</h3><p>#4 – 9360 Mill Street<br>Chilliwack, BC V2P 2P1</p><h3 style="margin-top:18px">Hours</h3><table class="hours"><tr><td>Friday</td><td>12:00 – 4:30 pm</td></tr><tr><td>Saturday</td><td>12:00 – 4:30 pm</td></tr><tr><td>Sunday – Thursday</td><td>Closed</td></tr></table><div class="st"></div><h3 style="margin-top:18px">Contact</h3><p><a href="tel:+16047927547">(604) 792-7547</a><br><a href="mailto:marionsdressingroom@gmail.com">marionsdressingroom@gmail.com</a></p><p style="color:var(--muted);font-size:.9rem">Hours as listed on the shop’s Facebook page. Check there for holiday changes and specials.</p><a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=Marion%27s+Dressing+Room+9360+Mill+St+Chilliwack+BC" target="_blank" rel="noopener">Get directions</a> <a class="btn ghost" href="tel:+16047927547">Call the shop</a></div>
+    <div class="map"><div><div class="eyebrow" style="margin-bottom:8px">Downtown Chilliwack</div><h3 style="color:#ffe9a8">Mill Street, Chilliwack</h3><p>Bright, airy and full of old-world charm.</p><a class="btn ghost" style="color:#f6ead8" href="https://www.google.com/maps/search/?api=1&amp;query=Marion%27s+Dressing+Room+9360+Mill+St+Chilliwack+BC" target="_blank" rel="noopener">Open in Maps</a></div></div>
+  </div>
+</div></section>
+
+<section id="follow"><div class="wrap rv">
+  <div class="eyebrow">Stay in the loop</div><h2>Find Marion online</h2>
+  <p class="lead">Marion posts new arrivals, specials and customer looks on Facebook.</p>
+  
+  <div class="soc">
+    <a href="https://www.facebook.com/chilliwackwomensvintageandmore/" target="_blank" rel="noopener"><b>Facebook ↗</b><small>New arrivals, specials &amp; customer photos</small></a>
+    <a href="https://www.yelp.ca/biz/marions-dressing-room-chilliwack" target="_blank" rel="noopener"><b>Yelp ↗</b><small>Reviews, photos &amp; hours</small></a>
+    <a href="mailto:marionsdressingroom@gmail.com"><b>Email</b><small>marionsdressingroom@gmail.com</small></a>
+  </div>
+</div></section>
+
+<footer><div class="logo">Marion’s Dressing Room</div><p>#4 – 9360 Mill Street, Chilliwack, BC · <a href="tel:+16047927547">(604) 792-7547</a></p><p><a href="mailto:marionsdressingroom@gmail.com">marionsdressingroom@gmail.com</a></p><p>© <span id="y"></span> Marion’s Dressing Room</p></footer>
+
+<div class="bar"><a href="tel:+16047927547">Call</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Marion%27s+Dressing+Room+9360+Mill+St+Chilliwack+BC" target="_blank" rel="noopener">Directions</a><a href="https://www.facebook.com/chilliwackwomensvintageandmore/" target="_blank" rel="noopener">Facebook</a></div>
+
+<script>
+var E=[
+["50s","Full skirts &amp; cinched waists","Think swing dresses, nipped waists and soft pastels with a touch of movie-star glamour.","Look for: circle skirts, pearls, gloves","#f4b6c8","#c2185b"],
+["60s","Mod prints &amp; kaleidoscope colour","Bright, bold geometrics and shift dresses that pop in photos.","Look for: shifts, bold prints, go-go boots","#ffb74d","#26a69a"],
+["70s","Flowing boho &amp; earth tones","Warm rusts, golds and drapey sleeves for an easy, free-spirited feel.","Look for: maxi dresses, suede, scarves","#d9a441","#8d4b1f"],
+["80s","Power shoulders &amp; jewel tones","Statement sleeves, sparkle and saturated colour for a big night out.","Look for: sequins, statement jewellery","#b06ad8","#00acc1"]];
+var S=[["M46 44L60 38L74 44L72 74Q96 96 106 158Q60 170 14 158Q24 96 48 74Z","M47 72H73L74 80H46Z"],["M46 44L60 38L74 44L78 70L84 112Q60 118 36 112L42 70Z","M41 92H79L80 100H40Z"],["M44 44L60 40L76 44L98 92L90 96L78 76L82 118L100 164Q60 172 20 164L38 118L42 76L30 96L22 92Z","M42 76H78L79 84H41Z"],["M30 40L60 46L90 40L98 56L78 62L74 150Q60 156 46 150L42 62L22 56Z","M42 84H78V92H42Z"]];var tabs=document.getElementById('tabs'),st=document.getElementById('stage');
+function pick(i){var e=E[i];st.style.setProperty('--a',e[4]);st.style.setProperty('--b',e[5]);document.getElementById('p1').setAttribute('d',S[i][0]);document.getElementById('p2').setAttribute('d',S[i][1]);
+ document.getElementById('et').innerHTML=e[0]+' · '+e[1];document.getElementById('ed').textContent=e[2];document.getElementById('ep').textContent=e[3];
+ [].forEach.call(tabs.children,function(b,j){b.setAttribute('aria-pressed',j==i)})}
+E.forEach(function(e,i){var b=document.createElement('button');b.textContent=e[0];b.onclick=function(){pick(i)};tabs.appendChild(b)});pick(1);
+var c=document.getElementById('curtain');
+document.getElementById('open').onclick=function(){c.classList.add('open');setTimeout(function(){c.style.display='none'},1700)};
+document.getElementById('burger').onclick=function(){document.getElementById('links').classList.toggle('show')};
+document.getElementById('links').onclick=function(){this.classList.remove('show')};
+document.getElementById('y').textContent=new Date().getFullYear();
+document.getElementById('theme').onclick=function(){var r=document.documentElement,d=r.dataset.theme?r.dataset.theme=='dark':matchMedia('(prefers-color-scheme:dark)').matches;r.dataset.theme=d?'light':'dark'};
+(function(){var o={};new Intl.DateTimeFormat('en-US',{timeZone:'America/Vancouver',weekday:'short',hour:'numeric',minute:'numeric',hourCycle:'h23'}).formatToParts(new Date()).forEach(function(x){o[x.type]=x.value});var m=+o.hour*60+ +o.minute,d=o.weekday,on=(d=='Fri'||d=='Sat'),t,c=0;if(on&&m>=720&&m<990)t='Open now · until 4:30 pm';else{c=1;t=(on&&m<720)?'Closed · opens today at 12 pm':(d=='Fri')?'Closed · opens Saturday at 12 pm':'Closed · opens Friday at 12 pm'}document.querySelectorAll('.st').forEach(function(e){e.textContent=t;if(c)e.classList.add('c')})})();
+var io=new IntersectionObserver(function(a){a.forEach(function(x){if(x.isIntersecting)x.target.classList.add('in')})},{threshold:.12});
+document.querySelectorAll('.rv').forEach(function(n){io.observe(n)});
+</script>
+</body>
+</html>
